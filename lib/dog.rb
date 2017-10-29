@@ -41,4 +41,8 @@ attr_accessor  :name, :breed, :id
       
     end
 
+    def find_or_create_by
+      
+    end
+
 end
