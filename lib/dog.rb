@@ -37,7 +37,7 @@ attr_accessor  :name, :breed, :id
 
     def self.find_by_id(x)
       DB[:conn].("SELECT * FROM dogs WHERE id = ?", x)
-      
+      binding.pry
     end
 
 end
