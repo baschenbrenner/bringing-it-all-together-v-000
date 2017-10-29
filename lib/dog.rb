@@ -49,7 +49,7 @@ attr_accessor  :name, :breed, :id
           self.find_by_id(found_id)
       else
         self.create(input_hash)
-      
+
       end
 
 
