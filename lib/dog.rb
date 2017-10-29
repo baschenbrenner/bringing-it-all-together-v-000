@@ -36,7 +36,7 @@ attr_accessor  :name, :breed, :id
     end
 
     def self.find_by_id(x)
-      DB[:conn].("SELECT * FROM dogs WHERE id = ?", x)
+      DB[:conn].execute("SELECT * FROM dogs WHERE id = ?", x)
       binding.pry
     end
 
