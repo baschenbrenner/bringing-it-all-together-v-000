@@ -38,10 +38,12 @@ attr_accessor  :name, :breed, :id
     def self.find_by_id(x)
       new_dog_array = DB[:conn].execute("SELECT * FROM dogs WHERE id = ?", x)[0]
       Dog.new(id: new_dog_array[0],name: new_dog_array[1],breed: new_dog_array[2])
-      
+
     end
 
-    def find_or_create_by
+    def find_or_create_by(input_hash)
+      DB[:conn].execute("SELECT id FROM dogs WHERE name = ? AND breed = ?", input_hash[:name], input_hash[:breed])
+      
       
     end
 
