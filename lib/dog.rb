@@ -36,8 +36,9 @@ attr_accessor  :name, :breed, :id
     end
 
     def self.find_by_id(x)
-      DB[:conn].execute("SELECT * FROM dogs WHERE id = ?", x)
-      binding.pry
+      new_dog_array = DB[:conn].execute("SELECT * FROM dogs WHERE id = ?", x)[0]
+      Dog.new(id: new_dog_array[0],name: new_dog_array[1],breed: new_dog_array[2])
+      
     end
 
 end
