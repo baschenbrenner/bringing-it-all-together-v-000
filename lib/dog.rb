@@ -65,4 +65,8 @@ attr_accessor  :name, :breed, :id
       self.new_from_db(found_dog_array)
     end
 
+    def update
+      self.save
+    end
+    
 end
