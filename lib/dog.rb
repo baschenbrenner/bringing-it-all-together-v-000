@@ -1,6 +1,6 @@
 class Dog
-attr_accessor  :name, :breed
-attr_reader :id
+attr_accessor  :name, :breed, :id
+
 
     def initialize(input_hash)
       @id=input_hash[:id]
@@ -24,6 +24,10 @@ attr_reader :id
         DB[:conn].execute(sql)
     end
 
-
+    def save
+      DB[:conn].execute("INSERT INTO dogs (name, breed) VALUES (?,?)", self.name, self.breed)
+      self.id = DB[:conn].execute("last_insert_rowid() FROM students")[0][0]
+      self
+    end
 
 end
