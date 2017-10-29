@@ -2,10 +2,10 @@ class Dog
 attr_accessor  :name, :breed
 attr_reader :id
 
-    def initialize(id=nil, name, breed)
-      @id=id
-      @name=name
-      @breed=breed
+    def initialize(input_hash)
+      @id=input_hash[:id]
+      @name=input_hash[:name]
+      @breed=input_hash[:breed]
     end
 
     def self.create_table
