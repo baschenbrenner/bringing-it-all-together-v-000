@@ -44,7 +44,7 @@ attr_accessor  :name, :breed, :id
     def self.find_or_create_by(input_hash)
       result_of_search = DB[:conn].execute("SELECT id FROM dogs WHERE name = ? AND breed = ?", input_hash[:name], input_hash[:breed])
       
-      if result_of_search
+      if result_of_search != []
       found_id=result_of_search[0][0]
           self.find_by_id(found_id)
       else
