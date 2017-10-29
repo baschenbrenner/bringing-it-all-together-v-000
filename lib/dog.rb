@@ -49,10 +49,14 @@ attr_accessor  :name, :breed, :id
           self.find_by_id(found_id)
       else
         self.create(input_hash)
-
       end
-
-
     end
 
+    def self.new_from_db(array)
+      input_hash={}
+      input_hash[:id]=array[0]
+      input_hash[:name]=array[1]
+      input_hash[:breed]=array[2]
+      self.create(input_hash)
+    end
 end
