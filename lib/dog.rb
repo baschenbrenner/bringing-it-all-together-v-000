@@ -48,7 +48,7 @@ attr_accessor  :name, :breed, :id
       else
         self.create(input_hash)
       end
-      
+
 
     end
 
