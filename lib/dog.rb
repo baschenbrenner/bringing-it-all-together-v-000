@@ -23,6 +23,6 @@ attr_accessor :id, :name, :breed
         DB[:conn].execute(sql)
     end
 
-      
-  
+
+
 end
