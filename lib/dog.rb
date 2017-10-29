@@ -35,4 +35,9 @@ attr_accessor  :name, :breed, :id
       new_dog.save
     end
 
+    def self.find_by_id(x)
+      DB[:conn].("SELECT * FROM dogs WHERE id = ?", x)
+      
+    end
+
 end
