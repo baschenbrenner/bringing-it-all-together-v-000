@@ -61,5 +61,6 @@ attr_accessor  :name, :breed, :id
     end
 
     def self.find_by_name(name)
-      
+      found_dog_array = DB[:conn].execute("SELECT * FROM dogs WHERE name = ?", name)[0]
+      self.new_from_db(array)
 end
