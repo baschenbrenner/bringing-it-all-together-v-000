@@ -42,11 +42,13 @@ attr_accessor  :name, :breed, :id
     end
 
     def self.find_or_create_by(input_hash)
-      found_id=DB[:conn].execute("SELECT id FROM dogs WHERE name = ? AND breed = ?", input_hash[:name], input_hash[:breed])[0][0]
-      if found_id
-        self.find_by_id(found_id)
+      result_of_search = DB[:conn].execute("SELECT id FROM dogs WHERE name = ? AND breed = ?", input_hash[:name], input_hash[:breed])
+      if result_of_search
+      found_id=result_of_search[0][0]
+          self.find_by_id(found_id)
       else
         self.create(input_hash)
+      
       end
 
 
