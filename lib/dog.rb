@@ -41,7 +41,7 @@ attr_accessor  :name, :breed, :id
 
     end
 
-    def find_or_create_by(input_hash)
+    def self.find_or_create_by(input_hash)
       DB[:conn].execute("SELECT id FROM dogs WHERE name = ? AND breed = ?", input_hash[:name], input_hash[:breed])
       binding.pry
 
