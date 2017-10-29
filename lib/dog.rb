@@ -57,7 +57,7 @@ attr_accessor  :name, :breed, :id
       input_hash[:id]=array[0]
       input_hash[:name]=array[1]
       input_hash[:breed]=array[2]
-      self.create(input_hash)
+      self.new(input_hash)
     end
 
     def self.find_by_name(name)
