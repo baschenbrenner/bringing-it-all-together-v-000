@@ -26,7 +26,7 @@ attr_accessor  :name, :breed, :id
 
     def save
       DB[:conn].execute("INSERT INTO dogs (name, breed) VALUES (?,?)", self.name, self.breed)
-      self.id = DB[:conn].execute("last_insert_rowid() FROM students")[0][0]
+      self.id = DB[:conn].execute("SELECT last_insert_rowid() FROM students")[0][0]
       self
     end
 
